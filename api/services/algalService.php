@@ -7,8 +7,6 @@ class AlgalService
 {
     public static function getOneAlgal()
     {
-        $res = AlgalspeciesQuery::create()->findPK(1);
-        $tools = new Tools();
-        return '<pre>' . $tools->prettyPrint($res->toJSON(false)) . '</pre>';
+        return AlgalspeciesQuery::create()->findPK(1);
     }
 }

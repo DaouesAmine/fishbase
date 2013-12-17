@@ -3,7 +3,7 @@ require_once('../config.php');
 
 require ROOT_DIR . '/vendor/autoload.php';
 
-require ROOT_DIR . '/api/util/tools.php';
+require ROOT_DIR . '/api/util/fbresponse.php';
 
 Propel::init(ROOT_DIR . '/conf/fbapp-conf.php');
 set_include_path(ROOT_DIR . '/classes' . PATH_SEPARATOR . get_include_path());
