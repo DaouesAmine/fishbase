@@ -16,3 +16,9 @@ $app->get('/species/:species', function ($speciesName) use ($app) {
     //FBResponse::doResponse($app, $res->toJSON(), true);
 });
 
+$app->get('/species/all/:pageNum', function ($pageNum) use ($app) {
+    $speciesPage = SpeciesService::getSpeciesPage($pageNum);
+    $dto = $speciesPage->getResults();
+    FBResponse::doResponse($app, $dto->toJSON(false,false), true);
+});
+

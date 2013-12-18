@@ -6,8 +6,6 @@ class FBResponse
 {
     public static function doResponse($app, $json, $success = true)
     {
-        header("Content-Type: application/json");
-
         if (!$success)
         {
             $app->response->setStatus(404);

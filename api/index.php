@@ -1,4 +1,9 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Expires: ' . gmdate('r', 0));
+header('Content-type: application/json');
+session_cache_limiter('nocache');
+
 require_once('../config.php');
 
 require ROOT_DIR . '/vendor/autoload.php';

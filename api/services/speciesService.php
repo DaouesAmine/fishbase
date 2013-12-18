@@ -15,4 +15,11 @@ class SpeciesService
         $species =  SpeciesQuery::create()->findOneBySpecies($speciesName);
         return $species;
     }
+
+    public static function getSpeciesPage($pageArg, $numrows = 50)
+    {
+        $species =  SpeciesQuery::create()
+            ->paginate($page = $pageArg, $rowsPerPage = 30);
+        return $species;
+    }
 }
