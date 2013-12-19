@@ -6,5 +6,5 @@ require ROOT_DIR . '/api/services/algalService.php';
 
 $app->get('/algal/:id', function ($id) use ($app) {
     $res = AlgalService::getOneAlgal($id);
-    FBResponse::doResponse($app, $res->toJSON(false), true);
+    FBResponse::doResponse($app, $res, true);
 });

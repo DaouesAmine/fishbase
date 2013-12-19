@@ -1,7 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header('Expires: ' . gmdate('r', 0));
-header('Content-type: application/json');
 session_cache_limiter('nocache');
 
 require_once('../config.php');
@@ -21,8 +20,8 @@ $app->hook("slim.before.router", function () use ($app) {
         require_once(ROOT_DIR . '/api/controllers/algalroutes.php');
     } elseif (strpos($app->request()->getPathInfo(), "/species") === 0) {
         require_once(ROOT_DIR . '/api/controllers/speciesroutes.php');
-    } elseif (strpos($app->request()->getPathInfo(), "/another") === 0) {
-        require_once(ROOT_DIR . '/api/routes.php');
+    } elseif (strpos($app->request()->getPathInfo(), "/cname") === 0) {
+        require_once(ROOT_DIR . '/api/controllers/cnameroutes.php');
     }
 });
 

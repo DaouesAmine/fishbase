@@ -4,10 +4,9 @@ require_once ROOT_DIR . '/api/util/tools.php';
 
 class FBResponse
 {
-    public static function doResponse($app, $json, $success = true)
+    public static function doResponse($app, $data, $success = true)
     {
-        if (!$success)
-        {
+        if (!$success) {
             $app->response->setStatus(404);
             $response = array(
                 'type' => 'not_found',
@@ -18,11 +17,23 @@ class FBResponse
 
         $app->response->setStatus(200);
         $prettyprint = $app->request->params('pretty');
-        if ($prettyprint == '1' || $prettyprint == 'true') {
-            $tools = new Tools();
-            echo '<pre>' . $tools->prettyPrint($json) . '</pre>';
-        } else {
-            echo $json;
+        $type = $app->request->params('type');
+
+        if ($type == 'json' || $type == null) {
+            header('Content-type: application/json');
+            if ($prettyprint == '1' || $prettyprint == 'true') {
+                $tools = new Tools();
+                echo '<pre>' . $tools->prettyPrint($data->toJSON(false)) . '</pre>';
+            } else {
+                echo $data->toJSON(false);
+            }
+        } else if ($type == 'xml') {
+            header('Content-Type: application/xml;');
+            if ($prettyprint == '1' || $prettyprint == 'true') {
+                echo htmlentities($data->toXML(false, false));
+            } else {
+                echo $data->toXML(false, false);
+            }
         }
     }
 }
