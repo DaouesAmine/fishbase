@@ -5,8 +5,8 @@ require ROOT_DIR . '/api/dto/SpeciesDTO.php';
 
 // http://local.dev/fishbase/api/algal
 
-$app->get('/species/:species', function ($speciesName) use ($app) {
-    $species = SpeciesService::getSpecies($speciesName);
+$app->get('/species/:speciesName', function ($speciesName) use ($app) {
+    $species = SpeciesService::getSpeciesBySpeciesName($speciesName);
     //$stock = StocksQuery::create()->findOneBySpeccode($species->getSpeccode());
 
     //$dto = new SpeciesDTO();
@@ -16,8 +16,13 @@ $app->get('/species/:species', function ($speciesName) use ($app) {
     //FBResponse::doResponse($app, $res->toJSON(), true);
 });
 
-$app->get('/species/all/:pageNum', function ($pageNum) use ($app) {
-    $speciesPage = SpeciesService::getSpeciesPage($pageNum);
+$app->get('/species/id/:id', function ($id) use ($app) {
+    $species = SpeciesService::getOneSpecies($id);
+    FBResponse::doResponse($app, $species, true);
+});
+
+$app->get('/species/all/:pageNum/:numRows', function ($pageNum, $numRows) use ($app) {
+    $speciesPage = SpeciesService::getSpeciesListByPage($pageNum, $numRows);
     $dto = $speciesPage->getResults();
     FBResponse::doResponse($app, $dto, true);
 });

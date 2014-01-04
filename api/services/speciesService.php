@@ -18,7 +18,7 @@ class SpeciesService
 {
     /**
      * @SWG\Api(
-     *   path="/species/{id}",
+     *   path="/species/id/{id}",
      * @SWG\Operation(
      *     method="GET",
      *     summary="Find Species by ID",
@@ -42,20 +42,20 @@ class SpeciesService
      */
     public static function getOneSpecies($id)
     {
-        return SpeciesQuery::create()->findPK($id);
+        return SpeciesQuery::create()->findBySpeccode($id);
     }
 
     /**
      * @SWG\Api(
-     *   path="/species/{name}",
+     *   path="/species/{speciesName}",
      * @SWG\Operation(
      *     method="GET",
      *     summary="Find Species by Name",
      *     notes="Returns an Species based on Name",
      *     type="Species",
-     *     nickname="getOneSpecies",
+     *     nickname="getSpeciesBySpeciesName",
      * @SWG\Parameter(
-     *       name="$speciesName",
+     *       name="speciesName",
      *       description="Name of Species that needs to be fetched",
      *       required=true,
      *       type="string",
@@ -66,16 +66,44 @@ class SpeciesService
      *   )
      * )
      */
-    public static function getSpecies($speciesName)
+    public static function getSpeciesBySpeciesName($speciesName)
     {
-        $species =  SpeciesQuery::create()->findOneBySpecies($speciesName);
+        $species = SpeciesQuery::create()->findOneBySpecies($speciesName);
         return $species;
     }
 
-    public static function getSpeciesPage($pageArg, $numrows = 50)
+    /**
+     * @SWG\Api(
+     *   path="/species/all/{pageNumber}/{numRows}",
+     * @SWG\Operation(
+     *     method="GET",
+     *     summary="List Species per Page",
+     *     notes="Returns a list of Species objects, allowing for pagination",
+     *     type="Species",
+     *     nickname="getSpeciesListByPage",
+     * @SWG\Parameter(
+     *       name="pageNumber",
+     *       description="Page Number",
+     *       required=true,
+     *       type="integer",
+     *       paramType="path"
+     *     ),
+     * @SWG\Parameter(
+     *       name="numRows",
+     *       description="Number of rows per page",
+     *       required=true,
+     *       type="integer",
+     *       paramType="path"
+     *     ),
+     * @SWG\ResponseMessage(code=400, message="Invalid arguments supplied"),
+     * @SWG\ResponseMessage(code=404, message="Species not found")
+     *   )
+     * )
+     */
+    public static function getSpeciesListByPage($pageNumber, $numRows)
     {
-        $species =  SpeciesQuery::create()
-            ->paginate($page = $pageArg, $rowsPerPage = 30);
+        $species = SpeciesQuery::create()
+            ->paginate($page = $pageNumber, $perPage = $numRows);
         return $species;
     }
 }

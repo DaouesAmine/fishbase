@@ -5,7 +5,45 @@
     "resourcePath":"/species",
     "apis":[
         {
-            "path":"/species/{id}",
+            "path":"/species/all/{pageNumber}/{numRows}",
+            "operations":[
+                {
+                    "method":"GET",
+                    "summary":"List Species per Page",
+                    "nickname":"getSpeciesListByPage",
+                    "type":"Species",
+                    "parameters":[
+                        {
+                            "paramType":"path",
+                            "name":"pageNumber",
+                            "type":"integer",
+                            "required":true,
+                            "description":"Page Number"
+                        },
+                        {
+                            "paramType":"path",
+                            "name":"numRows",
+                            "type":"integer",
+                            "required":true,
+                            "description":"Number of rows per page"
+                        }
+                    ],
+                    "responseMessages":[
+                        {
+                            "code":400,
+                            "message":"Invalid arguments supplied"
+                        },
+                        {
+                            "code":404,
+                            "message":"Species not found"
+                        }
+                    ],
+                    "notes":"Returns a list of Species objects, allowing for pagination"
+                }
+            ]
+        },
+        {
+            "path":"/species/id/{id}",
             "operations":[
                 {
                     "method":"GET",
@@ -39,17 +77,17 @@
             ]
         },
         {
-            "path":"/species/{name}",
+            "path":"/species/{speciesName}",
             "operations":[
                 {
                     "method":"GET",
                     "summary":"Find Species by Name",
-                    "nickname":"getOneSpecies",
+                    "nickname":"getSpeciesBySpeciesName",
                     "type":"Species",
                     "parameters":[
                         {
                             "paramType":"path",
-                            "name":"$speciesName",
+                            "name":"speciesName",
                             "type":"string",
                             "required":true,
                             "description":"Name of Species that needs to be fetched"

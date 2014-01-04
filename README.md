@@ -1,7 +1,7 @@
 FishBase REST API
 =================
 
-This project provides a RESTful frontend to the FishBase database. Stable builds can be seen running here: http:/www.deepspaceweb.com/fb
+This project provides a RESTful frontend to the FishBase database. Stable builds can be seen running here: http:/www.deepspaceweb.com/fishbase
 
 Requirements
 ---------------
@@ -46,5 +46,3 @@ To run the API documentation library:
 Note that the default base path will change depending on where the api resides relative to the documentation.
 
 This will generate the documentation in JSON form under the `docs/api-docs` directory, by scanning the `classes` and `api` directories for Swagger annotations.
-
-For now, a sample documentation and API itself can be tested at: http://deepspaceweb.com/fishbase/
