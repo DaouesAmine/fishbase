@@ -8,6 +8,10 @@
  *
  * @package    propel.generator.fbapp.om
  */
+
+/**
+ * @SWG\Model(id="Algal")
+ */
 abstract class BaseAlgalspecies extends BaseObject implements Persistent
 {
     /**
@@ -54,8 +58,7 @@ abstract class BaseAlgalspecies extends BaseObject implements Persistent
     protected $genusid;
 
     /**
-     * The value for the speciesid field.
-     * @var        double
+     * @SWG\Property(name="speciesid",type="integer",format="int64",description="Unique identifier for the Species")
      */
     protected $speciesid;
 

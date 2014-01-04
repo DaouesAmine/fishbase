@@ -1,0 +1,77 @@
+{
+    "basePath":"/fishbase/api",
+    "swaggerVersion":"1.2",
+    "apiVersion":"0.10",
+    "resourcePath":"/species",
+    "apis":[
+        {
+            "path":"/species/{id}",
+            "operations":[
+                {
+                    "method":"GET",
+                    "summary":"Find Species by ID",
+                    "nickname":"getOneSpecies",
+                    "type":"Species",
+                    "parameters":[
+                        {
+                            "paramType":"path",
+                            "name":"id",
+                            "type":"integer",
+                            "required":true,
+                            "description":"ID of Species that needs to be fetched",
+                            "format":"int64",
+                            "minimum":"1.0",
+                            "maximum":"100000.0"
+                        }
+                    ],
+                    "responseMessages":[
+                        {
+                            "code":400,
+                            "message":"Invalid ID supplied"
+                        },
+                        {
+                            "code":404,
+                            "message":"Species not found"
+                        }
+                    ],
+                    "notes":"Returns an Species based on ID"
+                }
+            ]
+        },
+        {
+            "path":"/species/{name}",
+            "operations":[
+                {
+                    "method":"GET",
+                    "summary":"Find Species by Name",
+                    "nickname":"getOneSpecies",
+                    "type":"Species",
+                    "parameters":[
+                        {
+                            "paramType":"path",
+                            "name":"$speciesName",
+                            "type":"string",
+                            "required":true,
+                            "description":"Name of Species that needs to be fetched"
+                        }
+                    ],
+                    "responseMessages":[
+                        {
+                            "code":400,
+                            "message":"Invalid Name supplied"
+                        },
+                        {
+                            "code":404,
+                            "message":"Species not found"
+                        }
+                    ],
+                    "notes":"Returns an Species based on Name"
+                }
+            ]
+        }
+    ],
+    "produces":[
+        "application/json",
+        "application/xml"
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "basePath":"/fishbase/api",
+    "swaggerVersion":"1.2",
+    "apiVersion":"0.10",
+    "resourcePath":"/algal",
+    "apis":[
+        {
+            "path":"/algal/{id}",
+            "operations":[
+                {
+                    "method":"GET",
+                    "summary":"Find Algae by ID",
+                    "nickname":"getOneAlgal",
+                    "type":"Algal",
+                    "parameters":[
+                        {
+                            "paramType":"path",
+                            "name":"id",
+                            "type":"integer",
+                            "required":true,
+                            "description":"ID of algae that needs to be fetched",
+                            "format":"int64",
+                            "minimum":"1.0",
+                            "maximum":"100000.0"
+                        }
+                    ],
+                    "responseMessages":[
+                        {
+                            "code":400,
+                            "message":"Invalid ID supplied"
+                        },
+                        {
+                            "code":404,
+                            "message":"Algae not found"
+                        }
+                    ],
+                    "notes":"Returns an Algae based on ID"
+                }
+            ]
+        }
+    ],
+    "produces":[
+        "application/json",
+        "application/xml"
+    ]
+}

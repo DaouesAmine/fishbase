@@ -1,0 +1,14 @@
+{
+    "apiVersion":"0.10",
+    "swaggerVersion":"1.2",
+    "apis":[
+        {
+            "path":"/algal.json",
+            "description":"Operations about Algae"
+        },
+        {
+            "path":"/species.json",
+            "description":"Operations about Species"
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 {
-    "require": {
-        "propel/propel1": "~1.6",
-        "slim/slim": "2.*"
+    "require":{
+        "propel/propel1":"~1.6",
+        "slim/slim":"2.*",
+        "zircote/swagger-php":"*"
     }
 }
