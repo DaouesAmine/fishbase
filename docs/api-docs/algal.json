@@ -39,6 +39,18 @@
             ]
         }
     ],
+    "models":{
+        "Algal":{
+            "id":"Algal",
+            "properties":{
+                "speciesid":{
+                    "description":"Unique identifier for the Species",
+                    "type":"integer",
+                    "format":"int64"
+                }
+            }
+        }
+    },
     "produces":[
         "application/json",
         "application/xml"

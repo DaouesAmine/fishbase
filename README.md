@@ -39,7 +39,9 @@ API Documentation
 
 To run the API documentation library:
 
-`C:\Development\fishbase\vendor\zircote\swagger-php>php swagger.phar ../../../classes ../../../api -o ../../../docs/api-docs --default-base-path /fishbase/api --default-api-version 0.10`
+`php swagger.phar ../../../classes ../../../api -o ../../../docs/api-docs --default-base-path /fishbase/api --default-api-version 0.10`
+
+`swagger.phar` can be found under: `C:\Development\fishbase\vendor\zircote\swagger-php`
 
 Note that the default base path will change depending on where the api resides relative to the documentation.
 
