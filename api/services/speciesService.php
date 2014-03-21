@@ -42,7 +42,7 @@ class SpeciesService
      */
     public static function getOneSpecies($id)
     {
-        return SpeciesQuery::create()->findBySpeccode($id);
+        return SpeciesQuery::create()->findOneBySpeccode($id);
     }
 
     /**
