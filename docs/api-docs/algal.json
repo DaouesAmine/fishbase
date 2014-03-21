@@ -1,57 +1,57 @@
 {
-    "basePath":"/fishbase/api",
-    "swaggerVersion":"1.2",
-    "apiVersion":"0.10",
-    "resourcePath":"/algal",
-    "apis":[
+    "basePath": "/fishbase/api",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.10",
+    "resourcePath": "/algal",
+    "apis": [
         {
-            "path":"/algal/{id}",
-            "operations":[
+            "path": "/algal/{id}",
+            "operations": [
                 {
-                    "method":"GET",
-                    "summary":"Find Algae by ID",
-                    "nickname":"getOneAlgal",
-                    "type":"Algal",
-                    "parameters":[
+                    "method": "GET",
+                    "summary": "Find Algae by ID",
+                    "nickname": "getOneAlgal",
+                    "type": "Algal",
+                    "parameters": [
                         {
-                            "paramType":"path",
-                            "name":"id",
-                            "type":"integer",
-                            "required":true,
-                            "description":"ID of algae that needs to be fetched",
-                            "format":"int64",
-                            "minimum":"1.0",
-                            "maximum":"100000.0"
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "ID of algae that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
                         }
                     ],
-                    "responseMessages":[
+                    "responseMessages": [
                         {
-                            "code":400,
-                            "message":"Invalid ID supplied"
+                            "code": 400,
+                            "message": "Invalid ID supplied"
                         },
                         {
-                            "code":404,
-                            "message":"Algae not found"
+                            "code": 404,
+                            "message": "Algae not found"
                         }
                     ],
-                    "notes":"Returns an Algae based on ID"
+                    "notes": "Returns an Algae based on ID"
                 }
             ]
         }
     ],
-    "models":{
-        "Algal":{
-            "id":"Algal",
-            "properties":{
-                "speciesid":{
-                    "description":"Unique identifier for the Species",
-                    "type":"integer",
-                    "format":"int64"
+    "models": {
+        "Algal": {
+            "id": "Algal",
+            "properties": {
+                "speciesid": {
+                    "description": "Unique identifier for the Species",
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         }
     },
-    "produces":[
+    "produces": [
         "application/json",
         "application/xml"
     ]

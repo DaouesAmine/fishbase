@@ -1,0 +1,61 @@
+{
+    "basePath": "/fishbase/api",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.10",
+    "resourcePath": "/cname",
+    "apis": [
+        {
+            "path": "/cname/letter/{letter}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "summary": "Find common name list by letter",
+                    "nickname": "getLetterList",
+                    "type": "CommonName",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "letter",
+                            "type": "string",
+                            "required": true,
+                            "description": "start letter"
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 400,
+                            "message": "Invalid Letter supplied"
+                        },
+                        {
+                            "code": 404,
+                            "message": "Letter not found"
+                        }
+                    ],
+                    "notes": "Returns an list of common names the start with letter"
+                }
+            ]
+        },
+        {
+            "path": "/cname/{name}",
+            "operations": [
+                {
+                    "method": "GET",
+                    "nickname": "getOneCommonName",
+                    "type": "CommonName",
+                    "parameters": [
+                        {
+                            "paramType": "path",
+                            "name": "name",
+                            "type": "string",
+                            "required": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "produces": [
+        "application/json",
+        "application/xml"
+    ]
+}

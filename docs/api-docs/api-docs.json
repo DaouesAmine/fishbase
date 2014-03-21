@@ -1,14 +1,18 @@
 {
-    "apiVersion":"0.10",
-    "swaggerVersion":"1.2",
-    "apis":[
+    "apiVersion": "0.10",
+    "swaggerVersion": "1.2",
+    "apis": [
         {
-            "path":"/algal.json",
-            "description":"Operations about Algae"
+            "path": "/algal.json",
+            "description": "Operations about Algae"
         },
         {
-            "path":"/species.json",
-            "description":"Operations about Species"
+            "path": "/cname.json",
+            "description": "Operations about Common Names"
+        },
+        {
+            "path": "/species.json",
+            "description": "Operations about Species"
         }
     ]
 }

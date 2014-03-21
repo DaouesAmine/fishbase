@@ -1,114 +1,114 @@
 {
-    "basePath":"/fishbase/api",
-    "swaggerVersion":"1.2",
-    "apiVersion":"0.10",
-    "resourcePath":"/species",
-    "apis":[
+    "basePath": "/fishbase/api",
+    "swaggerVersion": "1.2",
+    "apiVersion": "0.10",
+    "resourcePath": "/species",
+    "apis": [
         {
-            "path":"/species/all/{pageNumber}/{numRows}",
-            "operations":[
+            "path": "/species/all/{pageNumber}/{numRows}",
+            "operations": [
                 {
-                    "method":"GET",
-                    "summary":"List Species per Page",
-                    "nickname":"getSpeciesListByPage",
-                    "type":"Species",
-                    "parameters":[
+                    "method": "GET",
+                    "summary": "List Species per Page",
+                    "nickname": "getSpeciesListByPage",
+                    "type": "Species",
+                    "parameters": [
                         {
-                            "paramType":"path",
-                            "name":"pageNumber",
-                            "type":"integer",
-                            "required":true,
-                            "description":"Page Number"
+                            "paramType": "path",
+                            "name": "pageNumber",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Page Number"
                         },
                         {
-                            "paramType":"path",
-                            "name":"numRows",
-                            "type":"integer",
-                            "required":true,
-                            "description":"Number of rows per page"
+                            "paramType": "path",
+                            "name": "numRows",
+                            "type": "integer",
+                            "required": true,
+                            "description": "Number of rows per page"
                         }
                     ],
-                    "responseMessages":[
+                    "responseMessages": [
                         {
-                            "code":400,
-                            "message":"Invalid arguments supplied"
+                            "code": 400,
+                            "message": "Invalid arguments supplied"
                         },
                         {
-                            "code":404,
-                            "message":"Species not found"
+                            "code": 404,
+                            "message": "Species not found"
                         }
                     ],
-                    "notes":"Returns a list of Species objects, allowing for pagination"
+                    "notes": "Returns a list of Species objects, allowing for pagination"
                 }
             ]
         },
         {
-            "path":"/species/id/{id}",
-            "operations":[
+            "path": "/species/id/{id}",
+            "operations": [
                 {
-                    "method":"GET",
-                    "summary":"Find Species by ID",
-                    "nickname":"getOneSpecies",
-                    "type":"Species",
-                    "parameters":[
+                    "method": "GET",
+                    "summary": "Find Species by ID",
+                    "nickname": "getOneSpecies",
+                    "type": "Species",
+                    "parameters": [
                         {
-                            "paramType":"path",
-                            "name":"id",
-                            "type":"integer",
-                            "required":true,
-                            "description":"ID of Species that needs to be fetched",
-                            "format":"int64",
-                            "minimum":"1.0",
-                            "maximum":"100000.0"
+                            "paramType": "path",
+                            "name": "id",
+                            "type": "integer",
+                            "required": true,
+                            "description": "ID of Species that needs to be fetched",
+                            "format": "int64",
+                            "minimum": "1.0",
+                            "maximum": "100000.0"
                         }
                     ],
-                    "responseMessages":[
+                    "responseMessages": [
                         {
-                            "code":400,
-                            "message":"Invalid ID supplied"
+                            "code": 400,
+                            "message": "Invalid ID supplied"
                         },
                         {
-                            "code":404,
-                            "message":"Species not found"
+                            "code": 404,
+                            "message": "Species not found"
                         }
                     ],
-                    "notes":"Returns an Species based on ID"
+                    "notes": "Returns an Species based on ID"
                 }
             ]
         },
         {
-            "path":"/species/{speciesName}",
-            "operations":[
+            "path": "/species/{speciesName}",
+            "operations": [
                 {
-                    "method":"GET",
-                    "summary":"Find Species by Name",
-                    "nickname":"getSpeciesBySpeciesName",
-                    "type":"Species",
-                    "parameters":[
+                    "method": "GET",
+                    "summary": "Find Species by Name",
+                    "nickname": "getSpeciesBySpeciesName",
+                    "type": "Species",
+                    "parameters": [
                         {
-                            "paramType":"path",
-                            "name":"speciesName",
-                            "type":"string",
-                            "required":true,
-                            "description":"Name of Species that needs to be fetched"
+                            "paramType": "path",
+                            "name": "speciesName",
+                            "type": "string",
+                            "required": true,
+                            "description": "Name of Species that needs to be fetched"
                         }
                     ],
-                    "responseMessages":[
+                    "responseMessages": [
                         {
-                            "code":400,
-                            "message":"Invalid Name supplied"
+                            "code": 400,
+                            "message": "Invalid Name supplied"
                         },
                         {
-                            "code":404,
-                            "message":"Species not found"
+                            "code": 404,
+                            "message": "Species not found"
                         }
                     ],
-                    "notes":"Returns an Species based on Name"
+                    "notes": "Returns an Species based on Name"
                 }
             ]
         }
     ],
-    "produces":[
+    "produces": [
         "application/json",
         "application/xml"
     ]
