@@ -15,7 +15,12 @@ class FBResponse
             $app->halt(404, json_encode($response));
         }
 
-        $app->response->setStatus(200);
+        if (empty($data)) {
+            $app->halt(404, json_encode($response));
+        } else {
+            $app->response->setStatus(200);
+        }
+
         $prettyprint = $app->request->params('pretty');
         $type = $app->request->params('type');
 
